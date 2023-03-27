@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>postExample</title>
+</head>
+<body>
+ <form action="/pexample/" method="post"> // pexample 为资源地址
+        {% csrf_token %}
+        <input type="text" name="q">
+        <input type="submit" value="搜索">
+ </form>
+
+ <p>{{ rlt }}</p>
+</body>
+</html>

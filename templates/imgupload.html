@@ -1,0 +1,51 @@
+<!-- {% load static %} -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 引入 Bootstrap 核心样式文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- 引入 Bootstrap 可选的主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>图片上传</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="img">选择图片：</label>
+                <input type="file" name="img" id="img">
+            </div>
+            <button type="submit" class="btn btn-primary">上传</button>
+            <!-- {% if imgs %}
+            <img src="{{ imgs.img.url }}" class="img-responsive" alt="上传的图片">
+            {% endif %} -->
+        </form>
+        <h2>预测：</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <label>原始图片：</label>
+                {% if imgs %}
+                <img src="{{ imgs.img.url }}" class="img-thumbnail" alt="原图片" title="原图片">
+                {% endif %}
+            </div>
+            <div class="col-md-6">
+                <label>预测结果：</label>
+                {% if label %}
+                <img src="{{ label.img.url }}" class="img-thumbnail" alt="预测结果" title="预测结果">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入 jQuery 库文件 -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 引入 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
